@@ -1,0 +1,85 @@
+/* About (about--desktop.png): centred portrait + title block, then "What drives me" cards. */
+.about-intro {
+  display: grid;
+  place-items: center;
+  padding-top: var(--space-40);
+  padding-bottom: var(--space-16);
+}
+
+.about-intro__grid {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 520px);
+  gap: var(--space-4) var(--space-8);
+  align-items: start;
+}
+
+.about-intro__portrait {
+  width: 180px;
+  height: 180px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+.about-intro__grid .tag {
+  justify-self: end;
+}
+
+.about-intro__text {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 520px;
+}
+
+.drives {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-16);
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-30);
+  text-align: center;
+}
+
+.drives__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 456px));
+  gap: var(--space-4);
+  text-align: left;
+}
+
+.drives__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: var(--space-8);
+  border-radius: var(--radius-md);
+  background-image: var(--grad-card-soft);
+}
+
+@media (max-width: 1199.98px) {
+  .drives__cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 809.98px) {
+  .about-intro {
+    padding-top: var(--space-30);
+  }
+  .about-intro__grid {
+    grid-template-columns: 1fr;
+  }
+  .about-intro__portrait {
+    width: 120px;
+    height: 120px;
+  }
+  .about-intro__grid .tag {
+    justify-self: start;
+  }
+  .drives {
+    text-align: left;
+    justify-items: start;
+  }
+  .drives__card {
+    gap: var(--space-6);
+  }
+}

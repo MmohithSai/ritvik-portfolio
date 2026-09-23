@@ -1,0 +1,215 @@
+/* Exclusion hero (clone-workspace/alexfolio-hero/03-design-spec/DESIGN.md).
+   All type is #fff + mix-blend-mode: exclusion: near-black on the #e0e0e0 backdrop, white over the dark photo. */
+.xh {
+  position: relative;
+  isolation: isolate;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #121111;
+  color: #fff;
+  font-family: var(--font-inter-display), sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25.2px;
+}
+
+.xh__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: #e0e0e0;
+}
+
+.xh__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.xh__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  background: url("/grain.png") repeat;
+  background-size: 256px 256px;
+  opacity: 0.35;
+}
+
+/* Nav: 92px bar, 20px gutters, 4 items space-between (logo / 3 links). */
+.xh-nav {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  z-index: 3;
+  height: 92px;
+  mix-blend-mode: exclusion;
+}
+
+.xh-nav__bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 92px;
+}
+
+.xh-nav__link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 22px;
+  white-space: pre;
+}
+
+.xh-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.xh-nav__link:hover::after,
+.xh-nav__link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.xh-nav__toggle,
+.xh-nav__panel {
+  display: none;
+}
+
+/* Name marquee: vertically centred, top layer. */
+.xh__marquee {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  transform: translateY(-50%);
+  mix-blend-mode: exclusion;
+  --mq-speed: 35;
+}
+
+/* Subtitle: bottom-right, second line indented ~3 spaces like the reference. */
+.xh__sub {
+  position: absolute;
+  right: 28px;
+  bottom: 48px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  mix-blend-mode: exclusion;
+}
+
+.xh__sub h2 {
+  font-size: 64px;
+  line-height: 64px;
+  font-weight: 600;
+  letter-spacing: -0.033em;
+  white-space: pre;
+}
+
+.xh__sub h2 + h2 {
+  text-indent: 0.76em;
+}
+
+/* Socials: bottom-left column of icon + label. */
+.xh__socials {
+  position: absolute;
+  left: 16px;
+  bottom: 48px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  mix-blend-mode: exclusion;
+}
+
+.xh__socials a {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  font-size: 18px;
+  line-height: 25.2px;
+  white-space: pre;
+}
+
+.xh__socials svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* Tablet 810–1199 */
+@media (max-width: 1199.98px) {
+  .xh { height: 92vh; }
+  .xh__marquee { --mq-speed: 70; }
+  .xh__sub { bottom: 48px; }
+  .xh__sub h2 { font-size: 32px; line-height: 40px; }
+  .xh__socials { bottom: 36px; }
+}
+
+/* Mobile ≤809: logo + toggle, dark drop panel, icon-only socials on the right. */
+@media (max-width: 809.98px) {
+  .xh { height: 96svh; font-size: 16px; line-height: 22.4px; }
+
+  .xh-nav {
+    left: 0;
+    right: 0;
+    height: auto;
+    color: #121111;
+    mix-blend-mode: normal;
+    transition: background-color 0.3s ease;
+  }
+  .xh-nav[data-open] { background-color: #121111; color: #fff; }
+  .xh-nav__bar { height: 72px; padding: 0 16px; }
+  .xh-nav__link--desk { display: none; }
+
+  .xh-nav__toggle {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+  }
+  .xh-nav__toggle span {
+    position: absolute;
+    left: 8px;
+    width: 24px;
+    height: 2px;
+    background-color: currentColor;
+    transition: transform 0.3s ease, top 0.3s ease;
+  }
+  .xh-nav__toggle span:first-child { top: 14px; }
+  .xh-nav__toggle span:last-child { top: 24px; }
+  .xh-nav[data-open] .xh-nav__toggle span { top: 19px; }
+  .xh-nav[data-open] .xh-nav__toggle span:first-child { transform: rotate(45deg); }
+  .xh-nav[data-open] .xh-nav__toggle span:last-child { transform: rotate(-45deg); }
+
+  .xh-nav[data-open] .xh-nav__panel {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    height: 178px;
+    padding: 13px 16px 0;
+  }
+
+  .xh__sub { left: 16px; right: 16px; bottom: 36px; }
+  .xh__sub h2 { font-size: 32px; line-height: 35px; }
+
+  .xh__socials { left: auto; right: 16px; bottom: 36px; }
+  .xh__socials span { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xh-nav__link::after,
+  .xh-nav__toggle span { transition: none; }
+}

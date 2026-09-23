@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="s" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a2a2a"/>
+      <stop offset="1" stop-color="#0d0d0d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="900" fill="#e0e0e0"/>
+  <!-- placeholder silhouette: head, neck, shoulders -->
+  <ellipse cx="720" cy="300" rx="190" ry="235" fill="url(#s)"/>
+  <path d="M630 480 L810 480 L830 610 L610 610 Z" fill="url(#s)"/>
+  <path d="M300 900 C330 700 470 610 720 600 C970 610 1110 700 1140 900 Z" fill="url(#s)"/>
+</svg>

@@ -1,0 +1,35 @@
+.page-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: var(--space-8);
+  padding-top: var(--space-40);
+  padding-bottom: var(--space-16);
+}
+
+.page-header__side {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+
+.page-header__side p {
+  max-width: 480px;
+}
+
+@media (max-width: 809.98px) {
+  .page-header {
+    grid-template-columns: 1fr;
+    padding-top: var(--space-30);
+  }
+  .page-header__side {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+}
+
+/* dark header that runs straight into a dark content section (home programs) */
+.page-header.section--dark {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}

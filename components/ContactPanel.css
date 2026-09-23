@@ -1,0 +1,137 @@
+/* Contact (contact--desktop.png): Call | Message columns, 50/50 label/input rows, bottom-border inputs. */
+.contact-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  padding-top: var(--space-40);
+  padding-bottom: var(--space-16);
+}
+
+.contact-header .body-l {
+  max-width: 600px;
+  justify-self: end;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  padding-bottom: var(--space-30);
+}
+
+.contact__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.contact__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.contact__arrow {
+  width: 28px;
+  height: 28px;
+  transform: scaleX(-1);
+}
+
+.contact__call {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact__form {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.contact__field {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.contact__input {
+  width: 100%;
+  padding: 0 0 var(--space-2);
+  border: 0;
+  border-bottom: 1px solid var(--text-subtle);
+  border-radius: 0;
+  background: transparent;
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.3s var(--ease);
+}
+
+.contact__chat {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+select.contact__input {
+  appearance: none;
+  cursor: pointer;
+}
+
+select.contact__input:invalid {
+  color: var(--text-subtle);
+}
+
+.contact__input::placeholder {
+  color: var(--text-subtle);
+}
+
+.contact__input:focus-visible {
+  border-bottom-color: var(--ink);
+}
+
+textarea.contact__input {
+  min-height: 100px;
+}
+
+.contact__submit {
+  margin-left: calc((100% - var(--space-8)) / 3 + var(--space-8));
+  display: grid;
+  gap: var(--space-2);
+  text-align: center;
+}
+
+.contact__send {
+  width: 100%;
+  justify-content: center;
+}
+
+.contact__send[aria-disabled="true"] {
+  opacity: 0.5;
+}
+
+@media (max-width: 809.98px) {
+  .contact-header {
+    grid-template-columns: 1fr;
+    padding-top: var(--space-30);
+  }
+  .contact-header .body-l {
+    justify-self: start;
+  }
+  .contact {
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+  .contact__call {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+  .contact__field {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  .contact__submit {
+    margin-left: 0;
+  }
+}

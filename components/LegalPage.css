@@ -1,0 +1,24 @@
+/* Legal (legal-notice--desktop.png): single column, max 1600px centred (160px inset @1920). */
+.legal {
+  padding-top: var(--space-30);
+  padding-bottom: var(--space-16);
+}
+
+.legal__inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.legal__block {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-16);
+}
+
+.legal__block .body {
+  max-width: 1100px;
+}

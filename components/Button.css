@@ -1,0 +1,105 @@
+/* Button: 44px, radius-sm, face + centre-grow fill + rolling duplicate label (DESIGN.md States). */
+.btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: 44px;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  white-space: nowrap;
+  flex: none;
+  transition: color var(--dur-ui) var(--ease);
+}
+
+.btn--avatar {
+  padding-left: var(--space-2);
+}
+
+.btn--dark {
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+.btn--light {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+.btn--outlined {
+  box-shadow: inset 0 0 0 1px var(--ink);
+}
+
+.btn__fill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background-color: var(--ink);
+  opacity: 0;
+  transform: translateY(8px) scale(0.5);
+  transition: transform var(--dur-ui) var(--ease), opacity var(--dur-ui) var(--ease);
+}
+
+.btn--dark .btn__fill {
+  background-color: var(--paper);
+}
+
+.btn--primary .btn__fill {
+  background-color: var(--accent);
+}
+
+.btn__avatar {
+  width: 27px;
+  height: 27px;
+  border-radius: var(--radius-xs);
+  object-fit: cover;
+  flex: none;
+}
+
+.btn__roll {
+  display: block;
+  height: 19.8px;
+  overflow: hidden;
+}
+
+.btn__label {
+  display: block;
+  font-family: var(--font-display);
+  font-size-adjust: var(--font-display-adjust);
+  font-weight: 700;
+  font-size: var(--fs-label);
+  line-height: 19.8px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: transform var(--dur-ui) var(--ease);
+}
+
+.btn:hover .btn__fill,
+.btn:focus-visible .btn__fill {
+  opacity: 1;
+  transform: none;
+}
+
+.btn:hover .btn__label,
+.btn:focus-visible .btn__label {
+  transform: translateY(-100%);
+}
+
+.btn--light:hover,
+.btn--light:focus-visible {
+  color: var(--paper);
+}
+
+.btn--dark:hover,
+.btn--dark:focus-visible {
+  color: var(--ink);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  color: var(--ink);
+}

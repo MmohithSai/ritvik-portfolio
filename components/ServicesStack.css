@@ -1,0 +1,118 @@
+/* Home services: dark, rows stick at 110/212/314px and stack (home.layout.json sticky tops). */
+.svc {
+  position: relative;
+  z-index: 1;
+  padding-top: var(--space-40);
+  padding-bottom: var(--space-40);
+}
+
+.svc__head {
+  display: grid;
+  gap: var(--space-30);
+  padding-bottom: var(--space-30);
+}
+
+.svc__intro {
+  display: grid;
+  grid-template-columns: 640px 1fr;
+}
+
+.svc__intro .tag {
+  justify-self: start;
+  align-self: start;
+  grid-column: 1;
+}
+
+.svc__intro-text {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 520px;
+}
+
+.svc__row {
+  position: sticky;
+  min-height: 707px;
+  background-color: var(--ink);
+  border-top: 1px solid var(--surface-dark-2);
+}
+
+.svc__row-head {
+  display: grid;
+  grid-template-columns: 640px 1fr auto;
+  align-items: center;
+  height: 101px;
+}
+
+.svc__row-head .h-row {
+  color: var(--paper);
+}
+
+.svc__arrow {
+  width: 32px;
+  height: 32px;
+  color: var(--text-subtle);
+}
+
+.svc__body {
+  margin-left: 640px;
+  padding: var(--space-16) 0 var(--space-30);
+  display: grid;
+  gap: var(--space-16);
+}
+
+.svc__body > .body {
+  max-width: 440px;
+}
+
+.svc__items li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-8);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--surface-dark-2);
+}
+
+.svc__items li:last-child {
+  border-bottom: 0;
+}
+
+.svc__items .h-sub {
+  color: var(--text-subtle);
+}
+
+@media (max-width: 1199.98px) {
+  .svc__intro,
+  .svc__row-head {
+    grid-template-columns: 1fr 2fr auto;
+  }
+  .svc__intro {
+    grid-template-columns: 1fr 2fr;
+  }
+  .svc__body {
+    margin-left: 33.333%;
+  }
+}
+
+@media (max-width: 809.98px) {
+  .svc {
+    padding-top: var(--space-30);
+    padding-bottom: var(--space-16);
+  }
+  .svc__intro {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .svc__row {
+    position: relative;
+    top: auto !important;
+    min-height: 0;
+  }
+  .svc__row-head {
+    grid-template-columns: 56px 1fr auto;
+    height: 72px;
+  }
+  .svc__body {
+    margin-left: 0;
+    padding: var(--space-4) 0 var(--space-8);
+  }
+}

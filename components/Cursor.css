@@ -1,0 +1,40 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-cursor);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border-radius: var(--radius-sm);
+  background-color: var(--paper);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s var(--ease), height var(--dur-ui) var(--ease), padding var(--dur-ui) var(--ease);
+}
+
+.cursor[data-on] {
+  opacity: 1;
+}
+
+.cursor[data-label] {
+  height: 28px;
+  padding: 0 10px;
+  margin: 12px 0 0 12px;
+}
+
+.cursor__label {
+  font-family: var(--font-display);
+  font-size-adjust: var(--font-display-adjust);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}

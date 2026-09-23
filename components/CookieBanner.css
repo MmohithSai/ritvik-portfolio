@@ -1,0 +1,23 @@
+.cookie {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: var(--z-cookie);
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-5);
+  width: 360px;
+  max-width: calc(100vw - 2 * var(--space-4));
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  background-color: var(--paper);
+  box-shadow: var(--shadow-toast);
+}
+
+.cookie a {
+  color: var(--ink);
+}
+
+.cookie__ok {
+  height: 36px;
+}

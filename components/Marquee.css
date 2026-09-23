@@ -1,0 +1,43 @@
+/* Shared ticker for the exclusion hero + footer (DESIGN.md → Motion). */
+.xm {
+  overflow: hidden;
+  width: 100%;
+}
+
+.xm__track,
+.xm__group {
+  display: flex;
+  width: max-content;
+  column-gap: var(--mq-gap, 0px);
+}
+
+.xm__track {
+  animation: xm-scroll var(--mq-dur, 40s) linear infinite;
+}
+
+.xm__item {
+  display: block;
+  white-space: pre;
+  color: #fff;
+  font-family: var(--font-inter-display), sans-serif;
+  font-weight: 500;
+  font-size: 280px;
+  line-height: 220px;
+  letter-spacing: -0.04em;
+}
+
+@keyframes xm-scroll {
+  to { transform: translateX(calc(-50% - var(--mq-gap, 0px) / 2)); }
+}
+
+@media (max-width: 1199.98px) {
+  .xm__item { font-size: 228px; line-height: 180px; }
+}
+
+@media (max-width: 809.98px) {
+  .xm__item { font-size: 120px; line-height: 120px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xm__track { animation: none; }
+}
