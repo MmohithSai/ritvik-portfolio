@@ -1,30 +1,29 @@
-/* Design tokens — single source of truth (clone-workspace/ritvik-portfolio/03-design-spec/DESIGN.md).
+/* Design tokens — single source of truth.
    Pages and components consume these; nothing else declares a token. */
 :root {
-  /* Colors */
-  --paper: #ebe9e4;
-  --paper-rgb: 235, 233, 228;
-  --ink: #111111;
-  --ink-rgb: 17, 17, 17;
-  --text-muted: #555555;
-  --text-subtle: #aaaaaa;
-  --surface-dark-2: #333333;
-  --surface-light-2: #dbdbdb;
-  --accent: #ff4c24;
-  --rule: #aaaaaa;
+  /* Colors — chalk / iron / volt */
+  --paper: #eef0ec;
+  --paper-rgb: 238, 240, 236;
+  --ink: #0f1311;
+  --ink-rgb: 15, 19, 17;
+  --text-muted: #4f5652;
+  --text-subtle: #9aa39e;
+  --surface-dark-2: #26302b;
+  --surface-light-2: #d9ddd7;
+  --accent: #c8f031;
+  --rule: #a3aaa5;
   --black: #000000;
   --white: #ffffff;
 
   /* Gradients */
-  --grad-rule-fade: linear-gradient(180deg, rgb(235, 233, 228) 0%, rgb(170, 170, 170) 7.65942%, rgb(170, 170, 170) 91.1265%, rgb(235, 233, 228) 100%);
-  --grad-card-soft: linear-gradient(180deg, rgb(219, 219, 219) 0%, rgb(235, 233, 228) 100%);
+  --grad-rule-fade: linear-gradient(180deg, var(--paper) 0%, var(--rule) 8%, var(--rule) 92%, var(--paper) 100%);
+  --grad-card-soft: linear-gradient(180deg, var(--surface-light-2) 0%, var(--paper) 100%);
 
-  /* Fonts (next/font sets --font-anton etc. on <html>; licensed PP files can replace these) */
-  --font-display: var(--font-anton), "PP Neue Corp Tight Ultrabold", sans-serif;
-  --font-body: var(--font-inter-tight), "PP Neue Montreal Medium", sans-serif;
-  --font-mono: var(--font-jetbrains), "PP Neue Montreal Mono Medium", monospace;
-  /* Anton caps are ~25% larger than PP Neue Corp at equal font-size (measured 86 vs 69px @100px);
-     scale the rendered glyphs, not the computed font-size. Set to none once the licensed PP file ships. */
+  /* Fonts (next/font sets --font-anton etc. on <html>). All SIL OFL — see THIRD-PARTY-NOTICES.md. */
+  --font-display: var(--font-anton), sans-serif;
+  --font-body: var(--font-inter-tight), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+  /* Scale Anton's rendered caps down to the original design's cap height, not the computed font-size. */
   --font-display-adjust: cap-height 0.69;
 
   /* Type scale (desktop, measured @1920) */
@@ -65,7 +64,7 @@
   --radius-xl: 20px;
 
   /* Shadows */
-  --shadow-toast: rgba(0, 0, 0, 0.25) 1px 1px 5px 0px, rgb(17, 17, 17) 0px 0px 0px 1px inset;
+  --shadow-toast: rgba(0, 0, 0, 0.25) 1px 1px 5px 0px, var(--ink) 0px 0px 0px 1px inset;
   --shadow-card: rgba(0, 0, 0, 0.11) 0.241451px 0.241451px 1.70731px -1px, rgba(0, 0, 0, 0.15) 2px 2px 14.1421px -2px;
 
   /* Motion */
@@ -357,7 +356,6 @@ img {
   opacity: 0.05;
 }
 
-/* Everything above the fixed reveal footer (SiteFooter.css) must be opaque and stacked over it. */
 .page {
   position: relative;
   z-index: 2;

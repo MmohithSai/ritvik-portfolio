@@ -9,11 +9,11 @@ import Cursor from "@/components/Cursor";
 import { hero, person } from "@/content/site";
 import "./globals.css";
 
-// Open-licence stand-ins for the commercial PP Neue families (DESIGN.md → Font families).
+// Google Fonts, all SIL OFL (THIRD-PARTY-NOTICES.md).
 const anton = Anton({ weight: "400", subsets: ["latin"], variable: "--font-anton", display: "swap" });
 const interTight = Inter_Tight({ weight: "500", subsets: ["latin"], variable: "--font-inter-tight", display: "swap" });
 const jetbrains = JetBrains_Mono({ weight: "500", subsets: ["latin"], variable: "--font-jetbrains", display: "swap" });
-// Inter Display (SIL OFL) for the exclusion hero + footer.
+// Inter Display (SIL OFL) for the home hero + footer.
 const interDisplay = localFont({
   src: [
     { path: "./fonts/InterDisplay-400.woff2", weight: "400", style: "normal" },

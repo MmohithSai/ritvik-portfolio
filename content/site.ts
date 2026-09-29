@@ -402,7 +402,7 @@ export const legal = {
     title: "Privacy Policy",
     updated: "Last updated on: 23.09.2026",
     sections: [
-      { heading: "Overview", body: "This policy explains which personal data is processed when you visit this website and how it is used." },
+      { heading: "Overview", body: "This page describes what personal data this website collects when you visit it, and what it is used for." },
       { heading: "Application form", body: "When you apply, the data you enter (such as name, age, contact details, location, training level, goals and message) is sent through Web3Forms (web3forms.com) to my email address. It is used only to review your application and reply to you." },
       { heading: "Contact", body: "If you contact me by email, WhatsApp or Instagram, the data you provide is used only to answer your request." },
       { heading: "Cookies", body: "This website only uses cookies that are needed for it to work, plus an optional preference you set in the cookie banner." },

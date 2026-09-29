@@ -54,23 +54,47 @@
   max-width: 340px;
 }
 
+/* The copy scales in lockstep with the card (0.52 -> 1 matches the 24% side inset),
+   so anything that fits the viewport at full size also fits the card mid-grow: no cropped text. */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    .about-reveal__frame {
-      animation: about-grow linear both;
+    .about-reveal__frame,
+    .about-reveal__grid {
+      animation: about-grow ease-in-out both;
       animation-timeline: --about;
-      animation-range: contain 0% contain 45%;
+      animation-range: contain 0% contain 55%;
+    }
+    .about-reveal__frame {
+      border-radius: 0; /* clip-path owns the shape; a real radius would notch the full-bleed corners */
+    }
+    .about-reveal__grid {
+      animation-name: about-copy;
     }
   }
 }
 
 @keyframes about-grow {
   from {
-    clip-path: inset(28% 30% round var(--radius-md));
+    clip-path: inset(20% 24% round var(--radius-md));
   }
   to {
-    clip-path: inset(0% 0% round var(--radius-md));
+    clip-path: inset(0% 0% round 0px);
   }
+}
+
+@keyframes about-copy {
+  from {
+    transform: scale(0.52);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Full-bleed dark frame hands straight off to the dark Values block: no light seam between them. */
+.about-reveal + .values {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 @media (max-width: 809.98px) {
@@ -81,11 +105,13 @@
     position: relative;
     height: auto;
     padding-block: var(--space-30);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
     animation: none;
   }
   .about-reveal__grid {
     grid-template-columns: 1fr;
     gap: var(--space-4);
+    animation: none;
   }
   .about-reveal__grid .tag {
     justify-self: start;

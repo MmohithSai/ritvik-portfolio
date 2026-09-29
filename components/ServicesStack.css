@@ -1,4 +1,4 @@
-/* Home services: dark, rows stick at 110/212/314px and stack (home.layout.json sticky tops). */
+/* Dark section of rows that stick at 110/212/314…px and stack — only when [data-stack] (see ServicesStack.tsx). */
 .svc {
   position: relative;
   z-index: 1;
@@ -30,10 +30,15 @@
 }
 
 .svc__row {
-  position: sticky;
-  min-height: 707px;
+  position: relative;
   background-color: var(--ink);
   border-top: 1px solid var(--surface-dark-2);
+}
+
+.svc[data-stack] .svc__row {
+  position: sticky;
+  top: var(--top);
+  min-height: min(707px, calc(100vh - var(--top)));
 }
 
 .svc__row-head {
@@ -101,11 +106,6 @@
   .svc__intro {
     grid-template-columns: 1fr;
     gap: var(--space-4);
-  }
-  .svc__row {
-    position: relative;
-    top: auto !important;
-    min-height: 0;
   }
   .svc__row-head {
     grid-template-columns: 56px 1fr auto;

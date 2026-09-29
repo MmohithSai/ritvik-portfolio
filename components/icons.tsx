@@ -73,17 +73,18 @@ export const valueIcons: Record<IconName, (p: P) => React.JSX.Element> = {
   support: Support,
 };
 
-/** 40px quadrant mark — same geometry language as the reference "D", spelling "R". */
+/** 40px monogram: solid disc with a knocked-out "R". Stand-in until the trainer has a real logo. */
 export const LogoMark = (p: P) => (
   <svg width={40} height={40} viewBox="0 0 40 40" aria-hidden {...p}>
-    <rect x="0" y="0" width="19" height="19" rx="2" fill="currentColor" />
-    <path d="M21 0h9.5a9.5 9.5 0 0 1 0 19H21z" fill="currentColor" />
-    <rect x="0" y="21" width="19" height="19" rx="2" fill="currentColor" />
-    <path d="M21 21h4l15 19H21z" fill="currentColor" />
+    <mask id="logo-mark-r">
+      <rect width="40" height="40" fill="#fff" />
+      <text x="20" y="29" textAnchor="middle" fontSize="26" fill="#000" style={{ fontFamily: "var(--font-display)" }}>R</text>
+    </mask>
+    <circle cx="20" cy="20" r="20" fill="currentColor" mask="url(#logo-mark-r)" />
   </svg>
 );
 
-/* Phosphor Icons (MIT), regular weight, 256 viewBox, filled — used by the exclusion hero + footer. */
+/* Phosphor Icons (MIT), regular weight, 256 viewBox, filled — used by the home hero + footer. */
 const phosphor = (d: string) => {
   const Icon = (p: P) => (
     <svg width={24} height={24} viewBox="0 0 256 256" fill="currentColor" aria-hidden {...p}><path d={d} /></svg>
